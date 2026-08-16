@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ⬇️ ВЫНЕСИ СЮДА — перебивает все стили Telegram UI */
+#root, #root * {
+  font-family: 'Roboto Condensed', system-ui, -apple-system, sans-serif !important;
+}
+
+@layer base {
+  html, body {
+    @apply bg-tg-bg text-tg-text;
+    margin: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+}
+
