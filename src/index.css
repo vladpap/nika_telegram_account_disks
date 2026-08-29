@@ -3,12 +3,19 @@
 @tailwind utilities;
 
 /* ⬇️ ВЫНЕСИ СЮДА — перебивает все стили Telegram UI */
-#root, #root * {
-  font-family: 'Roboto Condensed', system-ui, -apple-system, sans-serif !important;
+#root,
+#root * {
+  font-family:
+    "Roboto Condensed",
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  /* background-color: blueviolet; */
 }
 
 @layer base {
-  html, body {
+  html,
+  body {
     @apply bg-tg-bg text-tg-text;
     margin: 0;
     padding-top: env(safe-area-inset-top);
@@ -17,13 +24,38 @@
     padding-right: env(safe-area-inset-right);
     -ms-overflow-style: none;
     scrollbar-width: none;
-
   }
 
   html::-webkit-scrollbar,
   body::-webkit-scrollbar {
     display: none;
   }
-
 }
 
+@keyframes usb-pulse {
+  0%,
+  12.5% {
+    filter: saturate(1);
+    opacity: 1;
+  }
+  36.5% {
+    filter: saturate(0.5);
+    opacity: 1;
+  }
+  62.5% {
+    filter: saturate(0);
+    opacity: 0.5;
+  }
+  87.5% {
+    filter: saturate(0);
+    opacity: 0.25;
+  }
+  100% {
+    filter: saturate(0);
+    opacity: 0.25;
+  }
+}
+
+.animate-usb-pulse {
+  animation: usb-pulse 4s infinite;
+}
